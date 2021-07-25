@@ -32,11 +32,11 @@ module.exports = (res, req) => {
         res.end();
     });
 
-    // if (pathname === '/' && req.method === 'GET') {
+    if (pathname === '/' && req.method === 'GET') {
 
-    //     // Implement the logic for the showing home html view
+        // Implement the logic for the showing home html view
 
-    // } else {
-    //     return true;
-    // }
+    } else {
+        return true;
+    }
 };
