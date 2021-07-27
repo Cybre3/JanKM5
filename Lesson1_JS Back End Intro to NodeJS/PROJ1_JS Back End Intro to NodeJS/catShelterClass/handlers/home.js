@@ -1,42 +1,37 @@
-const url = require('url');
-const fs = require('fs');
-const path = require('path');
-const cats = require('../data/cats');
+const url = require("url");
+const fs = require("fs");
+const path = require("path");
+// const cats = require("../data/cats");
 
+module.exports = (req, res) => {
+  const pathname = url.parse(req.url).pathname;
 
-
-module.exports = (res, req) => {
-    const pathname = url.parse(req.url).pathname;
-
+  if (pathname === "/" && req.method === "GET") {
     let filePath = path.normalize(
-        path.join(__dirname, "./views/home/index.html")
+      path.join(__dirname, "../views/home/index.html")
     );
+    // Implement the logic for the showing home html view
 
     fs.readFile(filePath, (err, data) => {
-        if(err) {
-            console.log(err);
-            res.writeHead(404, {
-                'Content-Type': 'text/plain'
-            });
-
-            res.write(404);
-            res.end();
-            return;
-        }
-
-        res.writeHead(200, {
-            'Content-Type': 'text/html'
+      if (err) {
+        console.log(err);
+        res.writeHead(404, {
+          "Content-Type": "text/plain",
         });
 
-        res.write(data);
+        res.write(404);
         res.end();
+        return;
+      }
+
+      res.writeHead(200, {
+        "Content-Type": "text/html",
+      });
+
+      res.write(data);
+      res.end();
     });
-
-    if (pathname === '/' && req.method === 'GET') {
-
-        // Implement the logic for the showing home html view
-
-    } else {
-        return true;
-    }
+  } else {
+    return true;
+  }
 };
