@@ -1,1 +1,16 @@
-[{"id":1,"name":"Pineapple","description":"brown cat","breed":"Unknown breed","image":"acat.jpg"}]
+[
+  {
+    "id": 1,
+    "name": "Pineapple",
+    "description": "brown cat",
+    "breed": "Unknown breed",
+    "image": "acat.jpg"
+  },
+  {
+    "id": 2,
+    "name": "sherly",
+    "description": "it's a cat",
+    "breed": "Unknown breed",
+    "image": "normalCat.jpg"
+  }
+]
